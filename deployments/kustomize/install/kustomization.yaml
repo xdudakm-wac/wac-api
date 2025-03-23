@@ -6,12 +6,12 @@ resources:
   - service.yaml
 
 configMapGenerator:
-  - name: xdudakm-wax-ambulance-webapi-mongodb-init
+  - name: xdudakm-wac-ambulance-webapi-mongodb-init
     files:
       - params/init-db.js
-  - name: xdudakm-wax-ambulance-webapi-config
+  - name: xdudakm-wac-ambulance-webapi-config
     literals:
-      - database=xdudakm-wax-ambulance
+      - database=xdudakm-wac-ambulance
       - collection=ambulance
 patches:
   - path: patches/webapi.deployment.yaml
@@ -19,4 +19,4 @@ patches:
       group: apps
       version: v1
       kind: Deployment
-      name: xdudakm-wax-ambulance-webapi
+      name: xdudakm-wac-ambulance-webapi

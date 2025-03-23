@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xdudakm-wax-ambulance-webapi
+  name: xdudakm-wac-ambulance-webapi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      pod: xdudakm-wax-ambulance-webapi-label
+      pod: xdudakm-wac-ambulance-webapi-label
   template:
     metadata:
       labels:
-        pod: xdudakm-wax-ambulance-webapi-label
+        pod: xdudakm-wac-ambulance-webapi-label
     spec:
       containers:
-        - name: xdudakm-wax-ambulance-wl-webapi-container
+        - name: xdudakm-wac-ambulance-wl-webapi-container
           image: xdudakm/ambulance-wl-webapi:latest
           imagePullPolicy: Always
           ports:
@@ -37,12 +37,12 @@ spec:
             - name: AMBULANCE_API_MONGODB_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: xdudakm-wax-ambulance-webapi-config
+                  name: xdudakm-wac-ambulance-webapi-config
                   key: database
             - name: AMBULANCE_API_MONGODB_COLLECTION
               valueFrom:
                 configMapKeyRef:
-                  name: xdudakm-wax-ambulance-webapi-config
+                  name: xdudakm-wac-ambulance-webapi-config
                   key: collection
             - name: AMBULANCE_API_MONGODB_TIMEOUT_SECONDS
               value: "5"
@@ -81,7 +81,7 @@ spec:
       volumes:
         - name: init-scripts
           configMap:
-            name: xdudakm-wax-ambulance-webapi-mongodb-init
+            name: xdudakm-wac-ambulance-webapi-mongodb-init
       initContainers:
         - name: init-mongodb
           image: mongo:latest
@@ -104,12 +104,12 @@ spec:
             - name: AMBULANCE_API_MONGODB_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: xdudakm-wax-ambulance-webapi-config
+                  name: xdudakm-wac-ambulance-webapi-config
                   key: database
             - name: AMBULANCE_API_MONGODB_COLLECTION
               valueFrom:
                 configMapKeyRef:
-                  name: xdudakm-wax-ambulance-webapi-config
+                  name: xdudakm-wac-ambulance-webapi-config
                   key: collection
             - name: RETRY_CONNECTION_SECONDS
               value: "5"

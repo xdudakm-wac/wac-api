@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: xdudakm-wax-ambulance-webapi
+  name: xdudakm-wac-ambulance-webapi
 spec:
   selector:
-    pod: xdudakm-wax-ambulance-webapi-label
+    pod: xdudakm-wac-ambulance-webapi-label
   ports:
     - name: http
       protocol: TCP
