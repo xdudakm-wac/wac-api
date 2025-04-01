@@ -11,7 +11,7 @@ const retrySeconds = parseInt(process.env.RETRY_CONNECTION_SECONDS || "5") || 5;
 
 // try to connect to mongoDB until it is not available
 let connection;
-while(true) {
+while (true) {
     try {
         connection = Mongo(`mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}`);
         break;
@@ -39,7 +39,7 @@ const db = connection.getDB(database)
 db.createCollection(collection)
 
 // create indexes
-db[collection].createIndex({ "id": 1 })
+db[collection].createIndex({"id": 1})
 
 //insert sample data
 let result = db[collection].insertMany([
@@ -48,8 +48,8 @@ let result = db[collection].insertMany([
         "name": "Dr.Bobulová",
         "roomNumber": "123",
         "predefinedConditions": [
-            { "value": "Nádcha", "code": "rhinitis" },
-            { "value": "Kontrola", "code": "checkup" }
+            {"value": "Nádcha", "code": "rhinitis"},
+            {"value": "Kontrola", "code": "checkup"}
         ]
     }
 ]);

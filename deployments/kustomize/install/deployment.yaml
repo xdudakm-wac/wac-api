@@ -77,7 +77,7 @@ spec:
             limits:
               memory: "64M"
               cpu: "0.1"
-              
+
       volumes:
         - name: init-scripts
           configMap:
@@ -86,7 +86,7 @@ spec:
         - name: init-mongodb
           image: mongo:latest
           imagePullPolicy: Always
-          command: ['mongosh', "--nodb", '-f', '/scripts/init-db.js']
+          command: [ 'mongosh', "--nodb", '-f', '/scripts/init-db.js' ]
           volumeMounts:
             - name: init-scripts
               mountPath: /scripts
