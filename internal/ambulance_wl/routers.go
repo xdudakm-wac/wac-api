@@ -88,7 +88,7 @@ func getRoutes(handleFunctions ApiHandleFunctions) []Route {
 		{
 			"DeleteWaitingListEntry",
 			http.MethodDelete,
-			"/api/waiting-list/:ambulanceId/condition",
+			"/api/waiting-list/:ambulanceId/entries/:entryId",
 			handleFunctions.AmbulanceWaitingListAPI.DeleteWaitingListEntry,
 		},
 		{
@@ -106,7 +106,7 @@ func getRoutes(handleFunctions ApiHandleFunctions) []Route {
 		{
 			"UpdateWaitingListEntry",
 			http.MethodPut,
-			"/api/waiting-list/:ambulanceId/condition",
+			"/api/waiting-list/:ambulanceId/entries/:entryId",
 			handleFunctions.AmbulanceWaitingListAPI.UpdateWaitingListEntry,
 		},
 		{
