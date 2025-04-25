@@ -17,6 +17,10 @@ func (a *Ambulance) reconcileWaitingList() {
 		}
 	})
 
+	if len(a.WaitingList) == 0 {
+		return
+	}
+
 	// we assume the first entry EstimatedStart is the correct one (computed before previous entry was deleted)
 	// but cannot be before current time
 	// for sake of simplicity we ignore concepts of opening hours here
